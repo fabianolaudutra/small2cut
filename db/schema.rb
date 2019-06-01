@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_30_215636) do
+ActiveRecord::Schema.define(version: 2019_06_01_190119) do
 
   create_table "urls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "hits"
     t.string "url"
     t.string "shortUrl"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "sanear"
+    t.string "userId"
+  end
+
+  create_table "users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

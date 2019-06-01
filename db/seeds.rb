@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#User.create(
+#    id: 'userTest'   
+#  )
+
+#Url.create(
+#    hits: '1',
+#    url: 'wwww.google.com',
+#    shortUrl: 'www.tb.nb',
+#    sanear: 'eeemmmm'    
+#  )
