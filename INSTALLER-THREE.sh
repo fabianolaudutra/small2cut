@@ -6,7 +6,7 @@ sudo apt-get -y install mysql-server  mysql-client  libmysqlclient-dev
 
 
 echo -e "\n\n"
-echo -e "\033[34;7mInstalling JavaScript Runtime\e[0m"
+echo -e "\033[34;7mInstalarJavaScript Runtime\e[0m"
 
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install nodejs

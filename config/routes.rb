@@ -1,16 +1,13 @@
 Rails.application.routes.draw do 
   
-  #resources :urls
-  #resources :users
   resources :users do 
     resources :urls
+    resources :stats
   end
-  #resources :users do |users|
-  #  resources :urls do |urls|      
-  #  end
-  #end
-  
-  
+  post '/user', to: 'users#destroy'
+  get '/urls/:id', to: 'urls#show'
+  post '/urls', to: 'urls#destroy'
+  get '/stats', to: 'stats#index'
   #post '/users', to: 'users#create'
   #get '/users', to: 'users#show'
   #post '/user', to: 'users#destroy'
@@ -20,14 +17,14 @@ Rails.application.routes.draw do
   #post '/urls', to: 'urls#create'
 
  
-  #GET /urls/:id <> get '/urls', to: 'urls#show' ok
-  #DELETE /urls/:id
-  #POST /users/:userid/urls
+  #GET /urls/:id [ok]
+  #DELETE /urls/:id  [ok] mas esta dando erro no retorno
+  #POST /users/:userid/urls [ok]
   
   #GET /stats
   #GET /users/:userId/stats
   #GET /stats/:id
   
   #POST /users ok
-  #DELETE /user/:userId ok
+  #DELETE /user/:userId [ok]
 end

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
         user = User.find(params[:id])
         user.destroy
         render json: {status: 'SUCCESS', message:'Deleted user', data:user},status: :ok
-        end
+    end
     
     private
 
