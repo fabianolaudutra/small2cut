@@ -2,7 +2,8 @@ class Url < ApplicationRecord
     require 'net/http'
     require 'uri'
     require 'json'
-    
+    require 'socket'
+    #require 'request'    
     UNIQUE_LENGTH= 8
     self.primary_key = "id"
     #belongs_to :user
@@ -33,11 +34,15 @@ class Url < ApplicationRecord
      
     def sanear
         uri   = URI(self.url)
+        
+        puts "SAIDA t: #{ @host_and_port}"
+        #hostname = request.original_url#Socket.gethostname
+        hostname = Socket.gethostname
         host  = URI.parse(self.url).host
         port  = URI.parse(self.url).port
         self.url.strip!
         sanear_ret = self.url.downcase.gsub(/(https?:\/\/)|(www\.)/,"")
-        self.sanear = "http://< #{host} >[:#{port}]/#{self.shortUrl}"
+        self.sanear = "http:// #{sanear_ret} [:#{port}]/#{self.shortUrl}"
     end
 
 end

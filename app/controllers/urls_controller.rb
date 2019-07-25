@@ -5,8 +5,10 @@ class UrlsController < ApplicationController
         url = Url.order('created_at DESC');
         render json: {status: 'SUCCESS', message:'Loaded urls', data:url},status: :ok 
     end
+    
 
     def create
+       # @host_and_port = request.host_with_port
         #puts "SAIDA URL CREATE 2: #{urls_params[:user_id]}"
         url = Url.new
         url.url =  urls_params[:url]
@@ -62,6 +64,11 @@ class UrlsController < ApplicationController
     def sanear_url
         url = Url.find_by_shortUrl(urls_params[:shortUrl])
     end
+    def get_host_url
+        #domain = request.host_with_port  #"localhost:3000"
+        domain = request.host
+        #url =  request.url #http://localhost:3000/somes/action_name/:id
+     end
 
     def update
         url = Url.find(urls_params[:id])
